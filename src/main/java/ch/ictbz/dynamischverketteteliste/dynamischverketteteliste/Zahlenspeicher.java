@@ -22,15 +22,8 @@ public class Zahlenspeicher implements  IZahlenspeicher{
         return false;
     }
     public String get(SortOrder sortOrder) {
+        int counter = countElem(elem);
 
-        while (elem.Previous != null) {
-            elem = elem.Previous;
-        }
-        int counter = 1;
-        while (elem.Next != null) {
-            elem = elem.Next;
-            counter += 1;
-        }
         Elem[] alreadyOrdered = new Elem[counter];
         String output = "";
         int counter2 = 0;
@@ -70,6 +63,18 @@ public class Zahlenspeicher implements  IZahlenspeicher{
 
 
         return output;
+    }
+
+    private int countElem(Elem elem) {
+        while (elem.Previous != null) {
+            elem = elem.Previous;
+        }
+        int counter = 1;
+        while (elem.Next != null) {
+            elem = elem.Next;
+            counter += 1;
+        }
+        return counter;
     }
 
     private boolean arrayContainsElem(Elem[] arr, Elem elem) {
