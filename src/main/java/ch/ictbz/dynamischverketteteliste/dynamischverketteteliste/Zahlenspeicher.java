@@ -6,7 +6,7 @@ public class Zahlenspeicher implements  IZahlenspeicher{
         elem = new Elem(n);
     }
     public void clear() {
-        Elem.clear();
+        elem.clear();
     }
     public boolean contains(int n) {
         while (elem.Next != null) {
@@ -28,9 +28,9 @@ public class Zahlenspeicher implements  IZahlenspeicher{
         String output = "";
         int counter2 = 0;
         while (counter2 < counter) {
-            Elem nextLowest;
+            Elem nextElem;
             do {
-                nextLowest = elem;
+                nextElem = elem;
                 if (elem.Previous != null)
                     elem = elem.Previous;
                 if (elem.Next == null)
@@ -40,8 +40,14 @@ public class Zahlenspeicher implements  IZahlenspeicher{
                 elem = elem.Next;
             }
             do {
-                if (elem.Number <= nextLowest.Number && !arrayContainsElem(alreadyOrdered, elem)) {
-                    nextLowest = elem;
+                if (sortOrder == SortOrder.ASCENDING) {
+                    if (elem.Number <= nextElem.Number && !arrayContainsElem(alreadyOrdered, elem)) {
+                        nextElem = elem;
+                    }
+                } else {
+                    if (elem.Number >= nextElem.Number && !arrayContainsElem(alreadyOrdered, elem)) {
+                        nextElem = elem;
+                    }
                 }
 
                 if (elem.Previous != null)
@@ -49,11 +55,11 @@ public class Zahlenspeicher implements  IZahlenspeicher{
                 else
                     break;
             } while (true);
-            alreadyOrdered[counter2] = nextLowest;
+            alreadyOrdered[counter2] = nextElem;
             if (counter2 == counter-1)
-                output += String.valueOf(nextLowest.Number);
+                output += String.valueOf(nextElem.Number);
             else
-                output += nextLowest.Number + ", ";
+                output += nextElem.Number + ", ";
             while (elem.Next != null) {
                 elem = elem.Next;
             }
@@ -66,6 +72,7 @@ public class Zahlenspeicher implements  IZahlenspeicher{
     }
 
     private int countElem(Elem elem) {
+        if (elem == null) return 0;
         while (elem.Previous != null) {
             elem = elem.Previous;
         }

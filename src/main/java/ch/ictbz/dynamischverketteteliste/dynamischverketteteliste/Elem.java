@@ -13,5 +13,17 @@ public class Elem {
         safe = this;
     }
 
-    public static void clear() { safe = null; }
+    public void clear() {
+        if (safe == null) return;
+
+        while (safe.Next != null) {
+            safe = safe.Next;
+        }
+        while (safe.Previous != null) {
+            safe = safe.Previous;
+            safe.Next = null;
+        }
+
+        safe = null;
+    }
 }

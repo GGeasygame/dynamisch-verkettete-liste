@@ -13,8 +13,6 @@ public class Controller {
     @FXML
     private RadioButton ascendingRadio;
     @FXML
-    private ToggleGroup order;
-    @FXML
     private RadioButton descendingRadio;
     @FXML
     private TextField outputTextField;
@@ -32,12 +30,13 @@ public class Controller {
         String output = "";
         if (ascendingRadio.isSelected())
             output = zahlenspeicher.get(SortOrder.ASCENDING);
-        else
+        else if (descendingRadio.isSelected())
             output = zahlenspeicher.get(SortOrder.DESCENDING);
         outputTextField.setText(output);
     }
 
     public void onButtonClear() {
         zahlenspeicher.clear();
+        outputTextField.setText("");
     }
 }
