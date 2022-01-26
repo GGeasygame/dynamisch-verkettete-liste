@@ -15,7 +15,7 @@ public class Elem {
 
     public void clear() {
         if (safe == null) return;
-
+        safe = this;
         while (safe.Next != null) {
             safe = safe.Next;
         }
@@ -23,7 +23,6 @@ public class Elem {
             safe = safe.Previous;
             safe.Next = null;
         }
-
         safe = null;
     }
 }

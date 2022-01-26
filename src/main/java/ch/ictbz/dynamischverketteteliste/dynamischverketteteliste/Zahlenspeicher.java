@@ -7,6 +7,7 @@ public class Zahlenspeicher implements  IZahlenspeicher{
     }
     public void clear() {
         elem.clear();
+        elem = null;
     }
     public boolean contains(int n) {
         while (elem.Next != null) {
