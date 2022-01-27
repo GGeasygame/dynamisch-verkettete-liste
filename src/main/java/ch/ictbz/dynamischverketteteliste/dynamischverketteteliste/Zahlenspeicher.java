@@ -2,8 +2,8 @@ package ch.ictbz.dynamischverketteteliste.dynamischverketteteliste;
 
 public class Zahlenspeicher implements  IZahlenspeicher {
     Elem elem;
-    public void add(int n) {
-        elem = new Elem(n);
+    public void add(Comparable c) {
+        elem = new Elem(c);
     }
     public void clear() {
         elem.clear();
@@ -14,7 +14,7 @@ public class Zahlenspeicher implements  IZahlenspeicher {
             elem = elem.Next;
         }
         do {
-            if (elem.Number == n) return true;
+            if (elem.comparable.compareTo(n) == 0) return true;
             if (elem.Previous != null)
                 elem = elem.Previous;
             else
@@ -45,9 +45,9 @@ public class Zahlenspeicher implements  IZahlenspeicher {
 
             alreadyOrdered[counter2] = nextElem;
             if (counter2 == counter-1)
-                output += String.valueOf(nextElem.Number);
+                output += String.valueOf(nextElem.comparable);
             else
-                output += nextElem.Number + ", ";
+                output += nextElem.comparable + ", ";
             while (elem.Next != null) {
                 elem = elem.Next;
             }
@@ -62,11 +62,11 @@ public class Zahlenspeicher implements  IZahlenspeicher {
     private Elem getLowestHighestElem(Elem elem, SortOrder sortOrder, Elem[] alreadyOrdered, Elem nextElem) {
         do {
             if (sortOrder == SortOrder.ASCENDING) {
-                if (elem.Number <= nextElem.Number && !arrayContainsElem(alreadyOrdered, elem)) {
+                if (elem.comparable.compareTo(nextElem.comparable) <= 0 && !arrayContainsElem(alreadyOrdered, elem)) {
                     nextElem = elem;
                 }
             } else {
-                if (elem.Number >= nextElem.Number && !arrayContainsElem(alreadyOrdered, elem)) {
+                if (elem.comparable.compareTo(nextElem.comparable) >= 0 && !arrayContainsElem(alreadyOrdered, elem)) {
                     nextElem = elem;
                 }
             }

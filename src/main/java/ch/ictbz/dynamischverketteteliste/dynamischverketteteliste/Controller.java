@@ -23,7 +23,7 @@ public class Controller {
     }
 
     public void onButtonAdd() {
-        zahlenspeicher.add(Integer.parseInt(numberTextField.getText()));
+        zahlenspeicher.add(numberTextField.getText());
     }
 
     public void onButtonGet() {

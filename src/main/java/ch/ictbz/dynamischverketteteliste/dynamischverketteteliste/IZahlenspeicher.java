@@ -5,7 +5,7 @@ public interface IZahlenspeicher {
      * Fügt eine Zahl in den Zahlenspeicher ein.
      * @param n
      */
-    void add(int n);
+    void add(Comparable c);
 
     /**
      * Gibt true zurück, wenn die Zahl n im Zahlenspeicher vorhanden ist.

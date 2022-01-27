@@ -3,13 +3,13 @@ package ch.ictbz.dynamischverketteteliste.dynamischverketteteliste;
 public class Elem {
     public Elem Next;
     public Elem Previous;
-    public int Number;
+    public Comparable comparable;
     private static Elem safe;
-    public Elem(int number) {
+    public Elem(Comparable comparable) {
         Previous = safe;
         if (Previous != null)
             Previous.Next = this;
-        Number = number;
+        this.comparable = comparable;
         safe = this;
     }
 
