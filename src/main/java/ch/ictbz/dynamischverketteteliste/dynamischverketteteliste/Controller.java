@@ -39,6 +39,8 @@ public class Controller {
     public void onButtonContains() {
         String inputNumber = numberTextField.getText();
         boolean containsNumber = zahlenspeicher.contains(Integer.parseInt(numberTextField.getText()));
+
+        // Display alert-message
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Contains");
         alert.setHeaderText(String.valueOf(containsNumber));
