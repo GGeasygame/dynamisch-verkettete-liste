@@ -30,4 +30,18 @@ public class Elem <T extends Comparable<T>> {
         }
         safe = null;
     }
+
+    public static <T extends Comparable<T>> Elem<T> goToFirstElem(Elem<T> elem) {
+        while (elem.Previous != null) {
+            elem = elem.Previous;
+        }
+        return elem;
+    }
+
+    public static <T extends Comparable<T>> Elem<T> goToLastElem(Elem<T> elem) {
+        while (elem.Next != null) {
+            elem = elem.Next;
+        }
+        return elem;
+    }
 }

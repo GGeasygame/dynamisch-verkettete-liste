@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="231.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.ictbz.dynamischverketteteliste.dynamischverketteteliste.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="233.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.ictbz.dynamischverketteteliste.dynamischverketteteliste.Controller">
    <children>
       <TextField fx:id="numberTextField" layoutX="12.0" layoutY="10.0" prefHeight="26.0" prefWidth="124.0" />
       <Button layoutX="145.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButtonAdd" prefHeight="26.0" prefWidth="73.0" text="Add" />

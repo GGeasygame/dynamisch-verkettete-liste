@@ -12,10 +12,8 @@ public class Zahlenspeicher <T extends Comparable<T>> implements  IZahlenspeiche
 
     public  boolean contains(T t) {
         if (elem == null) return false;
-        // got to last elem
-        while (elem.Next != null) {
-            elem = elem.Next;
-        }
+
+        elem = Elem.goToLastElem(elem);
         // go backwards in the list and check for every elem if it is the one that has been searched for
         do {
             if (elem.t.compareTo(t) == 0) return true;
@@ -48,9 +46,7 @@ public class Zahlenspeicher <T extends Comparable<T>> implements  IZahlenspeiche
                 if (elem.Next == null)
                     break;
             } while (arrayContainsElem(alreadyOrdered, elem.Next));
-            while (elem.Next != null) {
-                elem = elem.Next;
-            }
+            elem = Elem.goToLastElem(elem);
             // Get next highest or lowest elem.
             nextElem = getNextElem(elem, sortOrder, alreadyOrdered, nextElem);
 
@@ -60,9 +56,7 @@ public class Zahlenspeicher <T extends Comparable<T>> implements  IZahlenspeiche
                 output += String.valueOf(nextElem.t);
             else
                 output += nextElem.t + ", ";
-            while (elem.Next != null) {
-                elem = elem.Next;
-            }
+            elem = Elem.goToLastElem(elem);
             counter2 += 1;
         }
         return output;
@@ -93,10 +87,8 @@ public class Zahlenspeicher <T extends Comparable<T>> implements  IZahlenspeiche
 
     private int countElem(Elem<T> elem) {
         if (elem == null) return 0;
-        // got to first elem
-        while (elem.Previous != null) {
-            elem = elem.Previous;
-        }
+
+        elem = Elem.goToFirstElem(elem);
         int counter = 1;
         // go to last elem and count every elem on the way
         while (elem.Next != null) {
