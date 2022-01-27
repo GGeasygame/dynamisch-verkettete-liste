@@ -9,12 +9,13 @@ public class Zahlenspeicher implements  IZahlenspeicher {
         elem.clear();
         elem = null;
     }
-    public boolean contains(int n) {
+    public  boolean contains(Comparable c) {
+        if (elem == null) return false;
         while (elem.Next != null) {
             elem = elem.Next;
         }
         do {
-            if (elem.comparable.compareTo(n) == 0) return true;
+            if (elem.comparable.compareTo(c) == 0) return true;
             if (elem.Previous != null)
                 elem = elem.Previous;
             else

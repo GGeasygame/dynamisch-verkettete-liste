@@ -3,16 +3,16 @@ package ch.ictbz.dynamischverketteteliste.dynamischverketteteliste;
 public interface IZahlenspeicher {
     /**
      * Fügt eine Zahl in den Zahlenspeicher ein.
-     * @param n
+     * @param c
      */
     void add(Comparable c);
 
     /**
      * Gibt true zurück, wenn die Zahl n im Zahlenspeicher vorhanden ist.
-     * @param n
+     * @param t
      * @return
      */
-    boolean contains(int n);
+    <T extends Comparable<T>> boolean contains(T t);
 
     /**
      * Gibt alle Zahlen des Zahlenspeichers in einem Array zurück,

@@ -1,11 +1,7 @@
 package ch.ictbz.dynamischverketteteliste.dynamischverketteteliste;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 
 public class Controller {
     @FXML
@@ -23,7 +19,7 @@ public class Controller {
     }
 
     public void onButtonAdd() {
-        zahlenspeicher.add(numberTextField.getText());
+        zahlenspeicher.add(Integer.parseInt(numberTextField.getText()));
     }
 
     public void onButtonGet() {
@@ -38,5 +34,16 @@ public class Controller {
     public void onButtonClear() {
         zahlenspeicher.clear();
         outputTextField.setText("");
+    }
+
+    public void onButtonContains() {
+        String inputNumber = numberTextField.getText();
+        boolean containsNumber = zahlenspeicher.contains(Integer.parseInt(numberTextField.getText()));
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Contains");
+        alert.setHeaderText(String.valueOf(containsNumber));
+        String contentText = containsNumber ? "Die Zahl " + inputNumber + " ist enthalten." : "Die Zahl " + inputNumber + " ist nicht enthalten";
+        alert.setContentText(contentText);
+        alert.showAndWait();
     }
 }

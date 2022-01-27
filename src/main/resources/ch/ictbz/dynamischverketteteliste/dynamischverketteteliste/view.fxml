@@ -8,24 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="234.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.ictbz.dynamischverketteteliste.dynamischverketteteliste.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="322.0" prefWidth="231.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.ictbz.dynamischverketteteliste.dynamischverketteteliste.Controller">
    <children>
       <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="33.0" text="Zahl:" />
-      <TextField fx:id="numberTextField" layoutX="47.0" layoutY="10.0" prefHeight="17.0" prefWidth="102.0" />
-      <Button layoutX="153.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButtonAdd" prefHeight="25.0" prefWidth="57.0" text="Add" />
-      <Line endX="93.0" layoutX="115.0" layoutY="60.0" startX="-100.0" />
-      <Label layoutX="14.0" layoutY="71.0" text="Sortierreihenfolge:" />
-      <RadioButton fx:id="ascendingRadio" layoutX="14.0" layoutY="88.0" mnemonicParsing="false" selected="true" text="Ascending">
+      <TextField fx:id="numberTextField" layoutX="47.0" layoutY="10.0" prefHeight="26.0" prefWidth="89.0" />
+      <Button layoutX="145.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButtonAdd" prefHeight="26.0" prefWidth="73.0" text="Add" />
+      <Line endX="93.0" layoutX="115.0" layoutY="80.0" startX="-100.0" />
+      <Label layoutX="15.0" layoutY="89.0" text="Sortierreihenfolge:" />
+      <RadioButton fx:id="ascendingRadio" layoutX="14.0" layoutY="113.0" mnemonicParsing="false" selected="true" text="Ascending">
          <toggleGroup>
             <ToggleGroup fx:id="order" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="descendingRadio" layoutX="14.0" layoutY="112.0" mnemonicParsing="false" text="Descending" toggleGroup="$order" />
-      <Button layoutX="153.0" layoutY="109.0" mnemonicParsing="false" onAction="#onButtonGet" prefHeight="25.0" prefWidth="57.0" text="Get" />
-      <TextField fx:id="outputTextField" editable="false" layoutX="14.0" layoutY="142.0" prefHeight="25.0" prefWidth="196.0" />
-      <Line endX="93.0" layoutX="115.0" layoutY="184.0" startX="-100.0" />
-      <Label layoutX="14.0" layoutY="203.0" text="Zahlenspeicher leeren:" />
-      <Button layoutX="153.0" layoutY="199.0" mnemonicParsing="false" onAction="#onButtonClear" prefHeight="25.0" prefWidth="57.0" text="Clear" />
+      <RadioButton fx:id="descendingRadio" layoutX="14.0" layoutY="135.0" mnemonicParsing="false" text="Descending" toggleGroup="$order" />
+      <Button layoutX="125.0" layoutY="122.0" mnemonicParsing="false" onAction="#onButtonGet" prefHeight="25.0" prefWidth="57.0" text="Get" />
+      <TextField fx:id="outputTextField" alignment="TOP_LEFT" editable="false" layoutX="14.0" layoutY="161.0" prefHeight="109.0" prefWidth="196.0" />
+      <Line endX="93.0" layoutX="115.0" layoutY="281.0" startX="-100.0" />
+      <Label layoutX="14.0" layoutY="293.0" text="Zahlenspeicher leeren:" />
+      <Button layoutX="153.0" layoutY="289.0" mnemonicParsing="false" onAction="#onButtonClear" prefHeight="25.0" prefWidth="57.0" text="Clear" />
+      <Button layoutX="145.0" layoutY="46.0" mnemonicParsing="false" onAction="#onButtonContains" text="Contains?" />
    </children>
 </AnchorPane>
