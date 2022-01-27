@@ -1,6 +1,6 @@
 package ch.ictbz.dynamischverketteteliste.dynamischverketteteliste;
 
-public class Zahlenspeicher implements  IZahlenspeicher{
+public class Zahlenspeicher implements  IZahlenspeicher {
     Elem elem;
     public void add(int n) {
         elem = new Elem(n);
@@ -40,22 +40,9 @@ public class Zahlenspeicher implements  IZahlenspeicher{
             while (elem.Next != null) {
                 elem = elem.Next;
             }
-            do {
-                if (sortOrder == SortOrder.ASCENDING) {
-                    if (elem.Number <= nextElem.Number && !arrayContainsElem(alreadyOrdered, elem)) {
-                        nextElem = elem;
-                    }
-                } else {
-                    if (elem.Number >= nextElem.Number && !arrayContainsElem(alreadyOrdered, elem)) {
-                        nextElem = elem;
-                    }
-                }
 
-                if (elem.Previous != null)
-                    elem = elem.Previous;
-                else
-                    break;
-            } while (true);
+            nextElem = getLowestHighestElem(elem, sortOrder, alreadyOrdered, nextElem);
+
             alreadyOrdered[counter2] = nextElem;
             if (counter2 == counter-1)
                 output += String.valueOf(nextElem.Number);
@@ -70,6 +57,26 @@ public class Zahlenspeicher implements  IZahlenspeicher{
 
 
         return output;
+    }
+
+    private Elem getLowestHighestElem(Elem elem, SortOrder sortOrder, Elem[] alreadyOrdered, Elem nextElem) {
+        do {
+            if (sortOrder == SortOrder.ASCENDING) {
+                if (elem.Number <= nextElem.Number && !arrayContainsElem(alreadyOrdered, elem)) {
+                    nextElem = elem;
+                }
+            } else {
+                if (elem.Number >= nextElem.Number && !arrayContainsElem(alreadyOrdered, elem)) {
+                    nextElem = elem;
+                }
+            }
+
+            if (elem.Previous != null)
+                elem = elem.Previous;
+            else
+                break;
+        } while (true);
+        return  nextElem;
     }
 
     private int countElem(Elem elem) {
