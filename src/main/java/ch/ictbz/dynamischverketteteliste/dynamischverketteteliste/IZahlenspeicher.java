@@ -1,18 +1,18 @@
 package ch.ictbz.dynamischverketteteliste.dynamischverketteteliste;
 
-public interface IZahlenspeicher {
+public interface IZahlenspeicher <T extends Comparable<T>> {
     /**
      * Fügt eine Zahl in den Zahlenspeicher ein.
-     * @param c
+     * @param t
      */
-    void add(Comparable c);
+    void add(T t);
 
     /**
      * Gibt true zurück, wenn die Zahl n im Zahlenspeicher vorhanden ist.
      * @param t
      * @return
      */
-    <T extends Comparable<T>> boolean contains(T t);
+    boolean contains(T t);
 
     /**
      * Gibt alle Zahlen des Zahlenspeichers in einem Array zurück,

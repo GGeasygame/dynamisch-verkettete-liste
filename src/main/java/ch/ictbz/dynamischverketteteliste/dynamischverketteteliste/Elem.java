@@ -1,15 +1,15 @@
 package ch.ictbz.dynamischverketteteliste.dynamischverketteteliste;
 
-public class Elem {
-    public Elem Next;
-    public Elem Previous;
-    public Comparable comparable;
+public class Elem <T extends Comparable<T>> {
+    public Elem<T> Next;
+    public Elem<T> Previous;
+    public T t;
     private static Elem safe;
-    public Elem(Comparable comparable) {
+    public Elem(T t) {
         Previous = safe;
         if (Previous != null)
             Previous.Next = this;
-        this.comparable = comparable;
+        this.t = t;
         safe = this;
     }
 

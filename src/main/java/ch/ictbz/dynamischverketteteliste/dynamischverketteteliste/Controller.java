@@ -15,7 +15,7 @@ public class Controller {
 
     private Zahlenspeicher zahlenspeicher;
     public void initiate() {
-        zahlenspeicher = new Zahlenspeicher();
+        zahlenspeicher = new Zahlenspeicher<>();
     }
 
     public void onButtonAdd() {
